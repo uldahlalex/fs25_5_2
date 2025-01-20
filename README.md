@@ -1,7 +1,7 @@
 
 [![video](https://img.youtube.com/vi/nKCCoZmV2ls/0.jpg)](https://youtu.be/nKCCoZmV2ls)
 
-### Remote repo for today's lesson: https://github.com/uldahlalex/fs25_5_2
+#### Remote repo for today's lesson: (https://github.com/uldahlalex/fs25_5_2)
 
 
 
