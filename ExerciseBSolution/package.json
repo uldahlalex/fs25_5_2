@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "ws-request-hook": "1.x",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-use-websocket": "^4.11.1"

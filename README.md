@@ -1,7 +1,9 @@
 
 [![video](https://img.youtube.com/vi/nKCCoZmV2ls/0.jpg)](https://youtu.be/nKCCoZmV2ls)
 
-#### Remote repo for today's lesson: (https://github.com/uldahlalex/fs25_5_2)
+I recommend watching the above until 13:30 where the Angular implementation starts. Instead i recommend you watch the following about building React client implementation: (todo)
+
+#### Remote repo for today's lesson with solutions: (https://github.com/uldahlalex/fs25_5_2)
 
 
 
@@ -31,7 +33,8 @@
 
 
 #### Task
-Use this event handler library to implement a basic event handler for a WebSocket API. The server event must be capable to saving an object to a database and returning it to a client.
+Use this event handler library to implement a basic event handler for a WebSocket API. 
+The server event must be capable to saving an object to a database and returning it to all clients connected to the WebSocket API.
 
 #### Instructions
 
@@ -51,3 +54,35 @@ This should be the result:
 
 <!-- #endregion ex A -->
 _________
+
+<!-- #region ex B -->
+
+<details>
+    <summary>Exercise B: The client implementation</summary>
+
+
+<div style="margin: 20px; padding: 5px;  box-shadow: 10px 10px 10px grey;">
+
+#### Difficulty: ★★★☆☆
+
+
+#### Task
+The client app should both be capable of sending messages to the server and "reacting" to the events emitted by the server. Make a React app using ws-request-hook npm package in order to send messages to the API and react to server events sent back to the client.
+
+#### Instructions
+
+The following library has a custom hook to connect to a websocket server and perform actions upon certain events + "wait" for expected counter-events when sending messages.
+
+#### How to test it:
+
+
+
+This should be the result: 
+
+
+</div>
+</details>
+
+<!-- #endregion ex B -->
+_________
+

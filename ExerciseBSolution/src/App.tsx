@@ -1,97 +1,8 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import useWebSocket, { ReadyState } from 'react-use-websocket';
-import {BaseDto, useWebSocketWithRequests} from "./useWebSocketWithRequests.tsx";
+import { ReadyState } from 'react-use-websocket';
+import {BaseDto} from "ws-request-hook/dist/types/types";
+import {useWebSocketWithRequests} from "ws-request-hook/dist/types/hook";
 
-// Base DTO that only enforces eventType exists
-// interface BaseDto {
-//   eventType: string;
-//   [key: string]: any;
-// }
-
-// type MessageHandler<T extends BaseDto> = (message: T) => void;
-
-// // WebSocket Hook
-// function useWebSocketWithRequests(url: string) {
-//   const { sendMessage, lastMessage, readyState } = useWebSocket(url);
-//   const pendingRequests = useRef<Map<string, {
-//     resolve: (value: any) => void;
-//     reject: (error: Error) => void;
-//     timeout: NodeJS.Timeout;
-//   }>>(new Map());
-//
-//   const messageHandlers = useRef<Map<string, MessageHandler<any>>>(new Map());
-//
-//   const sendRequest = useCallback(async <
-//       TRequest extends BaseDto,
-//       TResponse extends BaseDto
-//   >(
-//       dto: TRequest,
-//       timeoutMs: number = 5000
-//   ): Promise<TResponse> => {
-//     const requestId = crypto.randomUUID();
-//
-//     const promise = new Promise<TResponse>((resolve, reject) => {
-//       const timeout = setTimeout(() => {
-//         pendingRequests.current.delete(requestId);
-//         reject(new Error('Request timed out'));
-//       }, timeoutMs);
-//
-//       pendingRequests.current.set(requestId, { resolve, reject, timeout });
-//     });
-//
-//     sendMessage(JSON.stringify({
-//       ...dto,
-//       requestId
-//     }));
-//
-//     return promise;
-//   }, [sendMessage]);
-//
-//   const onMessage = useCallback(<T extends BaseDto>(
-//       eventType: string,
-//       handler: MessageHandler<T>
-//   ) => {
-//     messageHandlers.current.set(eventType, handler);
-//     return () => {
-//       messageHandlers.current.delete(eventType);
-//     };
-//   }, []);
-//
-//   useEffect(() => {
-//     if (lastMessage) {
-//       try {
-//         const message = JSON.parse(lastMessage.data);
-//
-//         if (message.requestId && pendingRequests.current.has(message.requestId)) {
-//           const { resolve, reject, timeout } = pendingRequests.current.get(message.requestId)!;
-//           clearTimeout(timeout);
-//
-//           if (message.error) {
-//             reject(new Error(message.error));
-//           } else {
-//             resolve(message);
-//           }
-//
-//           pendingRequests.current.delete(message.requestId);
-//           return;
-//         }
-//
-//         if (message.eventType && messageHandlers.current.has(message.eventType)) {
-//           const handler = messageHandlers.current.get(message.eventType)!;
-//           handler(message);
-//         }
-//       } catch (error) {
-//         console.error('Failed to parse WebSocket message:', error);
-//       }
-//     }
-//   }, [lastMessage]);
-//
-//   return {
-//     sendRequest,
-//     onMessage,
-//     readyState
-//   };
-// }
 
 // Message Types and DTOs
 interface Message {
@@ -400,6 +311,7 @@ export default function ChatRoom() {
             </span>
             </div>
           </div>
+
 
           {/* Messages */}
           <div className="h-[calc(100vh-280px)] overflow-y-auto p-4 space-y-4">
