@@ -22,8 +22,6 @@ public class ServerConfirmsMessageSent : BaseDto
 public class ServerSendsMessageToRoom : BaseDto
 {
     public string messageId { get; set; }
-    public string requestId { get; set; }
-
     public string sender { get; set; }
     public int timestamp { get; set; }
     public string text { get; set; }
@@ -52,7 +50,6 @@ public class ClientWantsToSendMessageToRoomEventHandler(ClientConnectionsState s
                 sender = "Bob",
                 timestamp  = (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds,
                 text = dto.text,
-                requestId = dto.requestId
             });
         }
         return Task.CompletedTask;

@@ -5,7 +5,6 @@ import {useWebSocketWithRequests, BaseDto} from "ws-request-hook"
 class ClientWantsToSendMessageToRoom extends BaseDto {
   constructor(
       public readonly text: string,
-      public readonly requestId: string
   ) {
     super();
   }
@@ -14,18 +13,18 @@ class ClientWantsToSendMessageToRoom extends BaseDto {
 class ServerConfirmsMessageSent extends BaseDto {
   constructor(
       public readonly messageId: string,
-      public readonly requestId: string,
       public readonly text: string,
       public readonly sender: string,
-      public readonly timestamp: number
-  ) {
+      public readonly timestamp: number,
+  public readonly requestId: string,
+
+) {
     super();
   }
 }
 
 class ServerSendsMessageToRoom extends BaseDto {
   constructor(
-      public readonly requestId: string,
       public readonly messageId: string,
       public readonly text: string,
       public readonly sender: string,
@@ -67,7 +66,7 @@ export default function ChatRoom() {
     if (!newMessage.trim()) return;
 
     try {
-      const request = new ClientWantsToSendMessageToRoom(newMessage, crypto.randomUUID());
+      const request = new ClientWantsToSendMessageToRoom(newMessage);
 
       const response = await sendRequest<
           ClientWantsToSendMessageToRoom,
