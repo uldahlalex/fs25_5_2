@@ -11,7 +11,10 @@ I will soon upload React-based client app implementation content which the cours
 
 ### Agenda
 
-- 08:15: 
+- 08:15: Presentation
+- 08:35: Starting exercise A
+- 09:15: Wrapping up exercise A and presenting exercise B + How to wrap your head around control flow with websockets
+- 09:40: Exercise B + C
 
 ### Topics:
 
@@ -91,3 +94,20 @@ The following library has a custom hook to connect to a websocket server and per
 <!-- #endregion ex B -->
 _________
 
+<!-- #region ex B -->
+
+<details>
+    <summary>Exercise C: More actions!</summary>
+
+
+<div style="margin: 20px; padding: 5px;  box-shadow: 10px 10px 10px grey;">
+
+
+### Exercise C is to be published soon...
+
+
+
+</div>
+</details>
+
+<!-- #endregion ex C -->
