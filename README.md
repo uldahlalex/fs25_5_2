@@ -1,7 +1,9 @@
 
 [![video](https://img.youtube.com/vi/nKCCoZmV2ls/0.jpg)](https://youtu.be/nKCCoZmV2ls)
 
-I recommend watching the above until 13:30 where the Angular implementation starts. Instead i recommend you watch the following about building React client implementation: (todo)
+I recommend watching the above **until 13:30** where the Angular client app implementation starts. 
+
+I will soon upload React-based client app implementation content which the course will use.
 
 #### Remote repo for today's lesson with solutions: (https://github.com/uldahlalex/fs25_5_2)
 
@@ -33,13 +35,14 @@ I recommend watching the above until 13:30 where the Angular implementation star
 
 
 #### Task
-Use this event handler library to implement a basic event handler for a WebSocket API. 
-The server event must be capable to saving an object to a database and returning it to all clients connected to the WebSocket API.
+The WebSocket API should be able to trigger different server events based on an "eventType" property in the JSON DTO sent to the API.
+The goal is: **Send a ChatMessage DTO to the API**. The API must the send a **success message back to the client** AND **broadcast the message to all other clients**.
 
 #### Instructions
 
-I recommend you follow the instructions in this documentation:
+I recommend you follow the instructions in this documentation to set up an event handler thus making the API capable of having different "events": [LINK](https://github.com/uldahlalex/uldahlalex.websocket.boilerplate/blob/master/README.md) 
 
+Building the event handlers is based on the today's video material, so if you want a live demo, you can watch the video first.
 
 #### How to test it:
 
@@ -63,8 +66,10 @@ _________
 
 <div style="margin: 20px; padding: 5px;  box-shadow: 10px 10px 10px grey;">
 
-#### Difficulty: ★★★☆☆
 
+### Exercise B is to be published soon...
+<!-- 
+#### Difficulty: ★★★☆☆
 
 #### Task
 The client app should both be capable of sending messages to the server and "reacting" to the events emitted by the server. Make a React app using ws-request-hook npm package in order to send messages to the API and react to server events sent back to the client.
@@ -73,11 +78,11 @@ The client app should both be capable of sending messages to the server and "rea
 
 The following library has a custom hook to connect to a websocket server and perform actions upon certain events + "wait" for expected counter-events when sending messages.
 
-#### How to test it:
+#### How to test it: -->
 
 
 
-This should be the result: 
+<!-- This should be the result:  -->
 
 
 </div>

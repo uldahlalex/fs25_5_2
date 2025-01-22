@@ -1,5 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import {useWebSocketWithRequests, BaseDto} from "ws-request-hook"
+import ConnectionIndicator from "./Indicator.tsx";
+
+
+export class ClientWantsToSubscribToTopicDto extends BaseDto {
+    constructor(
+        public readonly topic: string
+    ) {
+        super();
+    }
+}
+export class ServerHasSubscribedClientToTopicDto extends BaseDto {
+    constructor(
+        public readonly topic: string,
+        public readonly userId: string
+    ) {
+        super();
+    }
+}
+
+
+export class ClientWantsToAuthenticateDto extends BaseDto {
+    constructor(
+        public readonly userId: string,
+        public readonly jwt: string
+    ) {
+        super();
+    }
+}
+
+export class ServerAuthenticatesClientDto extends BaseDto {
+    constructor(
+        public readonly userId: string,
+        public readonly jwt: string
+    ) {
+        super();
+    }
+}
 
 // DTOs
 class ClientWantsToSendMessageToRoom extends BaseDto {
@@ -45,10 +82,28 @@ export default function ChatRoom() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [newMessage, setNewMessage] = useState('');
 
-  const { sendRequest, onMessage } = useWebSocketWithRequests('ws://localhost:8181');
+  const {
+    sendRequest,
+    onMessage,
+      readyState
 
+  } = useWebSocketWithRequests('ws://localhost:8181');
   // Subscribe to incoming messages from other users
+
   useEffect(() => {
+    if(readyState != 1) return;
+    localStorage.setItem('jwt', 'jwt');
+    const authFromJwt = async () => {
+      const request = new ClientWantsToAuthenticateDto("123", localStorage.getItem('jwt') || "");
+      const response = await sendRequest<ClientWantsToAuthenticateDto, ServerAuthenticatesClientDto>(request);
+      console.log(response);
+    }
+    authFromJwt();
+
+  }, [readyState]);
+
+  useEffect(() => {
+
     const unsubscribe = onMessage(ServerSendsMessageToRoom, (message) => {
       setMessages(prev => [...prev, {
         id: message.messageId,
@@ -88,6 +143,7 @@ export default function ChatRoom() {
 
   return (
       <div className="flex flex-col h-screen max-w-2xl mx-auto p-4">
+        <ConnectionIndicator />
         <div className="flex-1 overflow-y-auto mb-4 space-y-2">
           {messages.map((message) => (
               <div
@@ -124,6 +180,19 @@ export default function ChatRoom() {
             Send
           </button>
         </form>
+
+        <button onClick={async () => {
+          const request = new ClientWantsToAuthenticateDto("123", "jwt");
+          const response =await  sendRequest<ClientWantsToAuthenticateDto, ServerAuthenticatesClientDto>(request);
+            console.log(response);
+
+        }}>Sign in!</button>
+
+        <button onClick={ async () => {
+          const request = new ClientWantsToSubscribToTopicDto("general")
+          const result = await  sendRequest<ClientWantsToSubscribToTopicDto, ServerHasSubscribedClientToTopicDto>(request);
+          console.log(result);
+        }}>subscribe to general topic</button>
       </div>
   );
 }
