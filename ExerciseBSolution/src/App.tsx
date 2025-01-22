@@ -2,6 +2,24 @@ import React, { useEffect, useState } from 'react';
 import {useWebSocketWithRequests, BaseDto} from "ws-request-hook"
 import ConnectionIndicator from "./Indicator.tsx";
 
+
+export class ClientWantsToSubscribToTopicDto extends BaseDto {
+    constructor(
+        public readonly topic: string
+    ) {
+        super();
+    }
+}
+export class ServerHasSubscribedClientToTopicDto extends BaseDto {
+    constructor(
+        public readonly topic: string,
+        public readonly userId: string
+    ) {
+        super();
+    }
+}
+
+
 export class ClientWantsToAuthenticateDto extends BaseDto {
     constructor(
         public readonly userId: string,
@@ -169,6 +187,12 @@ export default function ChatRoom() {
             console.log(response);
 
         }}>Sign in!</button>
+
+        <button onClick={ async () => {
+          const request = new ClientWantsToSubscribToTopicDto("general")
+          const result = await  sendRequest<ClientWantsToSubscribToTopicDto, ServerHasSubscribedClientToTopicDto>(request);
+          console.log(result);
+        }}>subscribe to general topic</button>
       </div>
   );
 }
