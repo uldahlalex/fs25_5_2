@@ -3,7 +3,7 @@
 
 I recommend watching the above **until 13:30** where the Angular client app implementation starts. 
 
-I will soon upload React-based client app implementation content which the course will use.
+(*We will look at client-implementation next lesson (which will be React-based, so stay tuned for some React WebSocket client material)*)
 
 #### Remote repo for today's lesson with solutions: (https://github.com/uldahlalex/fs25_5_2)
 
