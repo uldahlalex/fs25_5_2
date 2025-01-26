@@ -3,8 +3,7 @@
 
 @import "{{ site.theme }}";
 
-// Custom variables
-$main-font: "Arial", sans-serif;
+$main-font: Georgia, Times, "Times New Roman", serif;
 $content-width: 800px;
 
 // Base styles
@@ -13,22 +12,10 @@ body {
   line-height: 1.6;
 }
 
-// Layout
-.container {
-  max-width: $content-width;
-  margin: 0 auto;
+header {
+  display: none !important;
 }
 
-// Typography
-h1, h2, h3 {
-  font-weight: 600;
-  color: #333;
-}
-
-// Links
-a {
-  color: #0366d6;
-  &:hover {
-    text-decoration: underline;
-  }
+footer {
+  display: none !important;
 }

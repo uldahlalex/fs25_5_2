@@ -1,4 +1,6 @@
 
+# Server-Side Event Handling
+
 [![video](https://img.youtube.com/vi/nKCCoZmV2ls/0.jpg)](https://youtu.be/nKCCoZmV2ls)
 
 I recommend watching the above **until 13:30** where the Angular client app implementation starts. 
