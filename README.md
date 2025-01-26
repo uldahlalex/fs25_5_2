@@ -20,7 +20,9 @@ I will soon upload React-based client app implementation content which the cours
 
 - Event Handlers (how to make WebSocket API "endpoints")
 - Event driven architecture
-- How to make client app react to different server emmitted events
+- Global Exception handling
+- Event filters / pre-event actions
+- Simple stateless authentication in event-driven systems
 
 
 ### Exercises
@@ -33,8 +35,6 @@ I will soon upload React-based client app implementation content which the cours
 
 
 <div style="margin: 20px; padding: 5px;  box-shadow: 10px 10px 10px grey;">
-
-#### Difficulty: ★★☆☆☆
 
 
 #### Task
@@ -64,28 +64,23 @@ _________
 <!-- #region ex B -->
 
 <details>
-    <summary>Exercise B: The client implementation</summary>
+    <summary>Exercise B: Global Exception Handling</summary>
 
 
 <div style="margin: 20px; padding: 5px;  box-shadow: 10px 10px 10px grey;">
 
-
-### Exercise B is to be published soon...
-<!-- 
-#### Difficulty: ★★★☆☆
-
 #### Task
-The client app should both be capable of sending messages to the server and "reacting" to the events emitted by the server. Make a React app using ws-request-hook npm package in order to send messages to the API and react to server events sent back to the client.
+Make a global exception handler by wrapping the "CallEventHandler()" method call in a try-catch block. The exception handler should be capable of the following:
+- Returning a response DTO to the appropriate client
+- Logging relevant details server-side
 
 #### Instructions
 
-The following library has a custom hook to connect to a websocket server and perform actions upon certain events + "wait" for expected counter-events when sending messages.
+*...To be published*
 
-#### How to test it: -->
+#### How to test it:
 
-
-
-<!-- This should be the result:  -->
+*...To be published*
 
 
 </div>
@@ -94,10 +89,10 @@ The following library has a custom hook to connect to a websocket server and per
 <!-- #endregion ex B -->
 _________
 
-<!-- #region ex B -->
+<!-- #region ex C -->
 
 <details>
-    <summary>Exercise C: More actions!</summary>
+    <summary>Exercise C: Using an event-filter / actions before each server-event</summary>
 
 
 <div style="margin: 20px; padding: 5px;  box-shadow: 10px 10px 10px grey;">
@@ -111,3 +106,25 @@ _________
 </details>
 
 <!-- #endregion ex C -->
+
+
+_______
+
+
+<!-- #region ex D -->
+
+<details>
+    <summary>Exercise D: Chaining events</summary>
+
+
+<div style="margin: 20px; padding: 5px;  box-shadow: 10px 10px 10px grey;">
+
+
+### Exercise D is to be published soon...
+
+
+
+</div>
+</details>
+
+<!-- #endregion ex D -->
