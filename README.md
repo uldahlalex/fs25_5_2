@@ -41,7 +41,7 @@ I recommend watching the above **until 13:30** where the Angular client app impl
 
 #### Task
 The WebSocket API should be able to trigger different server events based on an "eventType" property in the JSON DTO sent to the API.
-The goal is: **Send a ChatMessage DTO to the API**. The API must the send a **success message back to the client** AND **broadcast the message to all other clients**.
+The goal is: **Send a DTO to the API representing some sort of chat message**. The API must the send a **success message back to the client** AND **broadcast the message to all other clients**.
 
 #### Instructions
 
