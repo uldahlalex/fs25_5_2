@@ -54,7 +54,7 @@ Building the event handlers is based on the today's video material, so if you wa
 You can test the API with the Postman Desktop client. I have an example WebSocket connection + message in my Fullstack 2025 workspace: https://www.postman.com/uldahlalexteam/fullstack-2025-workspace/ws-raw-request/678e3e5669c951396fd62e94
 
 This should be the result:
-![img.png](img.png)
+![image.png](image.png)
 
 
 </div>
