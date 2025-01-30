@@ -14,18 +14,17 @@ I recommend watching the above **until 13:30** where the Angular client app impl
 ### Agenda
 
 - 08:15: Presentation
-- 08:35: Starting exercise A
-- 09:15: Wrapping up exercise A and presenting exercise B + How to wrap your head around control flow with websockets
-- 09:40: Exercise B + C
+- 08:40: Starting exercises
+- 09:40: Wrapping up exercises & week 6 preview of what's to come next time
+- 10:00 -> 11:30: Workshop
 
 ### Topics:
 
 - Event Handlers (how to make WebSocket API "endpoints")
 - Event driven architecture
 - Global Exception handling
-- Event filters / pre-event actions
+- Pre-event actions
 - Simple stateless authentication in event-driven systems
-
 
 ### Exercises
 
@@ -72,7 +71,10 @@ _________
 <div style="margin: 20px; padding: 5px;  box-shadow: 10px 10px 10px grey;">
 
 #### Task
-Make a global exception handler. This means any unhandled exceptions within event handler methods will be handled by the global exception handler.
+Make a global exception handler. 
+This means **any unhandled exceptions** within event handler methods will be handled by a single exception handler. 
+
+(this is basically just a try-catch block)
 
 #### Instructions
 
@@ -125,9 +127,11 @@ It should be possible to use an event to issue a JWT and then verify JWT's in ev
 
 ### Instructions:
 
-1. Make an event for issuing a JWT to a client upon valid sign in (see this file for easy security boilerplate: ``)
+1. Make an event for issuing a JWT to a client upon valid sign in (see this file for easy security boilerplate: `https://github.com/uldahlalex/fs25_5_2/blob/main/ExerciseCSolution/SecurityService.cs`)
 2. Make an event which is "protected" (a valid JWT is required).
-3. If a valid JWT is not attached to the DTO when reaching a "protected event", throw an exception and let the exception handler do its job
+3. If a valid JWT is not attached to the DTO when reaching a "protected event", throw an exception and let the global exception handler do its job
+
+Note: Postman Workspaces have a tendency to remove JWT's because they deem them as "leaked secrets", but this is how it looks when I send a valid dto:
 
 ![alt text](image-2.png)
 
