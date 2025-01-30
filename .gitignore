@@ -5,3 +5,4 @@ node_modules
 vendor/
 .bundle/
 _site/
+*.user

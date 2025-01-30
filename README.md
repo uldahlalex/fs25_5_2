@@ -151,5 +151,27 @@ Note: Postman Workspaces have a tendency to remove JWT's because they deem them 
 <!-- #endregion ex C -->
 
 
+<!-- #region ex D -->
+
+<details>
+    <summary>Exercise D: Make it persist data aswell!</summary>
+
+
+<div style="margin: 20px; padding: 5px;  box-shadow: 10px 10px 10px grey;">
+
+
+### Task:
+Add connection from your API to a Postgres database (or whatever other RDBMS you want to) with Entity Framework. Make some CRUD operations with Event Handlers.
+
+*(Tip: Connecting to DB is still just "AddDbContext()" inside Program.cs and using your constructor in your event handler to require an instance of your dbcontext - just like last semester)*
+
+
+</div>
+</details>
+
+<!-- #endregion ex D -->
+
+
+
 _______
 
