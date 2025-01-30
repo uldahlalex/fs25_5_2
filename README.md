@@ -15,8 +15,8 @@ I recommend watching the above **until 13:30** where the Angular client app impl
 
 - 08:15: Presentation
 - 08:40: Starting exercises
-- 09:40: Wrapping up exercises & week 6 preview of what's to come next time
-- 10:00 -> 11:30: Workshop
+- 09:40: **Exercise C** solution explanation
+- 10:00 -> whenever: Workshop (**exercise D** *and whatever you had left of a,b,c*)
 
 ### Topics:
 
