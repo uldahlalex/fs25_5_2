@@ -85,6 +85,7 @@ Wrap the "CallEventHandler()" method call in a try-catch block. The exception ha
 The relevant code to make the global exception handling block is:
 
 ```cs
+//this is inside Program.cs where you set up the WebSocket server and listen for client messges:
     socket.OnMessage = message =>
     {
         Task.Run(async () =>
@@ -95,7 +96,7 @@ The relevant code to make the global exception handling block is:
             }
             catch (Exception e)
             {
-                //This is where you build it
+                //This is where you build the global exception handling logic
             }
         });
     };
@@ -127,7 +128,10 @@ It should be possible to use an event to issue a JWT and then verify JWT's in ev
 
 ### Instructions:
 
-1. Make an event for issuing a JWT to a client upon valid sign in (see this file for easy security boilerplate: `https://github.com/uldahlalex/fs25_5_2/blob/main/ExerciseCSolution/SecurityService.cs`)
+1. Make an event for issuing a JWT to a client upon valid sign in. Use this file for easy security boilerplate: 
+
+`https://github.com/uldahlalex/fs25_5_2/blob/main/ExerciseCSolution/SecurityService.cs` 
+
 2. Make an event which is "protected" (a valid JWT is required).
 3. If a valid JWT is not attached to the DTO when reaching a "protected event", throw an exception and let the global exception handler do its job
 
