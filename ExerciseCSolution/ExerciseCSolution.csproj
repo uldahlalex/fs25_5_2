@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="uldahlalex.websocket.boilerplate" Version="2.1.*" />
+    <PackageReference Include="JWT" Version="11.0.0" />
   </ItemGroup>
   
 </Project>

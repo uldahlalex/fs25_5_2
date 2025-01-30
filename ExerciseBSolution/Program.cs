@@ -5,13 +5,13 @@ using WebSocketBoilerplate;
 
 
 var builder = WebApplication.CreateBuilder(args);
-
-
 builder.Services.AddSingleton<ClientConnectionsState>();
 
 builder.Services.InjectEventHandlers(Assembly.GetExecutingAssembly());
 
 var app = builder.Build();
+
+var logger = app.Services.GetRequiredService<ILogger<Program>>();
 
 var server = new WebSocketServer("ws://0.0.0.0:8181");
 
@@ -20,18 +20,27 @@ server.Start(socket =>
 {
     socket.OnOpen = () => clientConnections.Add(socket);
     socket.OnClose = () => clientConnections.Remove(socket);
-    try
+    socket.OnMessage = message =>
     {
-        socket.OnMessage = async message => await app.CallEventHandler(socket, message);
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine(e.Message);
-        Console.WriteLine(e.InnerException);
-        Console.WriteLine(e.StackTrace);
-    }
-    
+        Task.Run(async () =>
+        {
+            try
+            {
+                await app.CallEventHandler(socket, message);
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e, "Error handling message: {Error}", e.Message);
+                socket.SendDto(new ServerSendsErrorMessageDto { Error = e.Message });
+            }
+        });
+    };
 });
 
 
 app.Run();
+
+public class ServerSendsErrorMessageDto : BaseDto
+{
+    public string Error { get; set; }
+}
