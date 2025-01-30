@@ -132,6 +132,12 @@ It should be possible to use an event to issue a JWT and then verify JWT's in ev
 
 `https://github.com/uldahlalex/fs25_5_2/blob/main/ExerciseCSolution/SecurityService.cs` 
 
+I use this Nuget for JWT in my .csproj file which is required for the above code:
+
+```xml
+    <PackageReference Include="JWT" Version="11.0.0" />
+```
+
 2. Make an event which is "protected" (a valid JWT is required).
 3. If a valid JWT is not attached to the DTO when reaching a "protected event", throw an exception and let the global exception handler do its job
 
