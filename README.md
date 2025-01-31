@@ -150,6 +150,8 @@ Note: Postman Workspaces have a tendency to remove JWT's because they deem them 
 
 <!-- #endregion ex C -->
 
+_________
+
 
 <!-- #region ex D -->
 
@@ -175,3 +177,15 @@ Add connection from your API to a Postgres database (or whatever other RDBMS you
 
 _______
 
+### Exam dialogue question examples around today's content:
+- How many times can a server event handler emit data to a client?
+- How many clients can a server event handler emit data to?
+- How do you trigger an event handler? 
+- Where/how are/can unhandled exceptions inside an event handler processed?
+
+### References and furhter reading:
+- The "wrapper" framework we use for event handlers: 
+    - Nuget gallery: `https://www.nuget.org/packages/uldahlalex.websocket.boilerplate`
+    - Source code: `https://github.com/uldahlalex/uldahlalex.websocket.boilerplate`
+- The jwt library I use to demonstrate auth: `https://www.nuget.org/packages/JWT`
+- Vendor for free managed Postgresql: `https://render.com/pricing#postgresql` (Alternative to Aiven. Later we will also use Redis, which *Render* also provides a free instance of)
